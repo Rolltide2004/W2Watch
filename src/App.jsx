@@ -1,5 +1,3 @@
-import 'bootstrap/dist/js/bootstrap.js';
-import 'bootswatch/dist/solar/bootstrap.min.css';
 import Header from './Components/Header';
 import Search from './Components/Search';
 import { Router, Routes, Route } from 'react-router-dom';
