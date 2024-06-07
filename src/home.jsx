@@ -1,8 +1,7 @@
+import Header from './Components/Header';
+import Search from './Components/Search';
 export default function Home(){
-  
-
-  return <>
-
+  return(
     <div>
       <Header />
       <br/>
@@ -10,7 +9,5 @@ export default function Home(){
         <Search />
       </div>
     </div>
-
-  </>
-
+  );
 }
