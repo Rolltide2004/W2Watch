@@ -33,8 +33,6 @@ function MoviesPortal() {
                     <label class="btn btn-outline-primary" for="btnradio1">Movie</label>
                     <input type="radio" class="btn-check" name="btnradio" id="btnradio2" onChange={(e) => setButtonOn('btn2')}/>
                     <label class="btn btn-outline-primary" for="btnradio2">Series</label>
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" onChange={(e) => setButtonOn('btn3')}/>
-                    <label class="btn btn-outline-primary" for="btnradio3">Episode</label>
                 </div>
             </div>
 

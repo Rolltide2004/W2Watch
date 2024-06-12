@@ -1,15 +1,12 @@
-export const fetchMovies = async (searchText, moviesCallback, errorCallback, finallyCallback, buttonOn) => {
+export const fetchWatch = async (searchID, moviesCallback, errorCallback, finallyCallback) => {
     try {
 
-        let response;
-        if(buttonOn === 'btn1')
-            response = await fetch(`http://www.omdbapi.com/?s=${searchText}&apikey=b29f7958&type=movie`);
-        if(buttonOn === 'btn2')
-            response = await fetch(`http://www.omdbapi.com/?s=${searchText}&apikey=b29f7958&type=series`);
+        let response = await fetch(`http://www.omdbapi.com/?s=${searchID}&apikey=b29f7958`);
+//        let response = await fetch(`http://www.omdbapi.com/?i=${searchID}&apikey=b29f7958`);
         const data = await response.json();
 
         if (data.Response === 'True') {
-            const movieDetailsPromises = data.Search.map((movie) => fetchMovieDetails(movie.imdbID, errorCallback));
+            const movieDetailsPromises = data.Search.map((movie) => fetchWatchDetails(movie.imdbID, errorCallback));
             const movieDetails = await Promise.all(movieDetailsPromises);
 
             moviesCallback(movieDetails);
@@ -26,9 +23,9 @@ export const fetchMovies = async (searchText, moviesCallback, errorCallback, fin
     }
 };
 
-const fetchMovieDetails = async (id, errorCallback) => {
+const fetchWatchDetails = async (id, errorCallback) => {
     try {
-        const response = await fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=b29f7958`);
+        const response = await fetch(`http://www.omdbapi.com/?i=${id}&plot=short&apikey=b29f7958`);
         const data = await response.json();
 
         if (data.Response === 'True') {

@@ -1,7 +1,8 @@
 import "bootswatch/dist/solar/bootstrap.min.css";
-import { Router, Routes, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './home';
 import Watch from './watch';
+import About from "./about";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Home />}/>
           <Route path="/watch" element={<Watch />}/>
+          <Route path="/about" element={<About />}/>
       </Routes>
     </Router>
   );
